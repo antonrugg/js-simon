@@ -28,6 +28,13 @@ body{
     width: 50px;
 }
 
+#scoreContainer{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #containerNumbers p{
     color: white;
     margin: 0rem 1.25rem;
@@ -39,4 +46,10 @@ body{
     color: black;
     font-size: 30px;
     font-weight: 900;
+}
+
+#scoreContainer p{
+    color: bisque;
+    font-size: 30px;
+    font-weight: 600;
 }

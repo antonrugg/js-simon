@@ -40,6 +40,7 @@ function userGuess(){
             console.log(`Number guessed: ${arrayUserNumbers[i]}`);
             score++;
             console.log(score);
+            scoreParagraph.innerText = `Score: ${score}`;
         }
     }
 }
@@ -75,6 +76,14 @@ countDownParagraph.innerText = `${max}`;
 
 
 const scoreContainer = document.createElement('div');
+document.body.appendChild(scoreContainer);
+scoreContainer.id = 'scoreContainer';
+const scoreParagraph = document.createElement('p');
+scoreContainer.appendChild(scoreParagraph);
+scoreParagraph.innerText = `Score: ${score}`;
+
+
+const numberGuessedContainer = document.createElement('div');
 
 
 
