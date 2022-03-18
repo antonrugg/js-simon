@@ -8,7 +8,14 @@ console.log('JS OK');
 //  numeri da indovinare sono stati individuati.
 
 //starting countdown number
-let max = 30;
+let max = 3;
+let score = 0;
+
+//created empty array where i will store random numbers
+const arrayRandomNumbers = [];
+
+//create empty array where i will store user choice numbers
+const arrayUserNumbers = [];
 
 //save setinterval function inside a variable to use it for clearInterval
 const countDownTimeOut = setInterval(countDownFunc, 1000);
@@ -18,7 +25,23 @@ function generateRandomNumber(min, max) {
     const range = max - min + 1;
 
     return Math.floor(Math.random() * range) + min;
+}
 
+//function that ask user to enter 5 numbers and puts it inside an empty array
+function userGuess(){
+    for (let i = 0; i < 5; i++){
+        let userNumber = parseInt(prompt(`Guess number ${i + 1}: `));
+        arrayUserNumbers.push(userNumber);
+    }
+    console.log(arrayUserNumbers);
+
+    for (let i = 0; i < arrayUserNumbers.length; i++){
+        if (arrayRandomNumbers.includes(arrayUserNumbers[i])) {
+            console.log(`Number guessed: ${arrayUserNumbers[i]}`);
+            score++;
+            console.log(score);
+        }
+    }
 }
 
 
@@ -29,6 +52,7 @@ function countDownFunc() {
 
     if (max <= 0) {
         clearInterval(countDownTimeOut);
+        userGuess();
     }
 }
 
@@ -50,9 +74,11 @@ countDownContainer.appendChild(countDownParagraph);
 countDownParagraph.innerText = `${max}`;
 
 
+const scoreContainer = document.createElement('div');
 
-//created empty array where i will store random numbers
-const arrayRandomNumbers = [];
+
+
+
 
 
 //for to create and append paragraphs containing 1 random number each, push random number inside of the empty array arrayRandomNumbers
