@@ -1,5 +1,3 @@
-console.log('JS OK');
-
 // Descrizione:
 // Visualizzare in pagina 5 numeri casuali.Da lì parte un timer di 30 secondi.
 //     Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha
@@ -10,6 +8,7 @@ console.log('JS OK');
 //starting countdown number
 let max = 3;
 let score = 0;
+let guessedNumber = '';
 
 //created empty array where i will store random numbers
 const arrayRandomNumbers = [];
@@ -38,6 +37,7 @@ function userGuess(){
     for (let i = 0; i < arrayUserNumbers.length; i++){
         if (arrayRandomNumbers.includes(arrayUserNumbers[i])) {
             console.log(`Number guessed: ${arrayUserNumbers[i]}`);
+            numberGuessedParagraph.innerText += ` ${arrayUserNumbers[i]}  `
             score++;
             console.log(score);
             scoreParagraph.innerText = `Score: ${score}`;
@@ -58,7 +58,12 @@ function countDownFunc() {
 }
 
 
+
+
+//************CREATE ELEMENTS IN DOM SECTION***************************//
+
 //actions to create div, append it to body, give id
+//CONTAINER
 const container = document.createElement('div');
 document.body.appendChild(container);
 container.id = 'containerNumbers';
@@ -67,6 +72,7 @@ container.id = 'containerNumbers';
 
 //actions to create div for countdown, append it to body,
 //create p and append it inside of div
+//COUNTDOWN
 const countDownContainer = document.createElement('div');
 document.body.appendChild(countDownContainer);
 countDownContainer.id = 'containerCountDown';
@@ -74,7 +80,9 @@ const countDownParagraph = document.createElement('p');
 countDownContainer.appendChild(countDownParagraph);
 countDownParagraph.innerText = `${max}`;
 
-
+//actions to create div for countdown, append it to body,
+//create p and append it inside of div
+//SCORE
 const scoreContainer = document.createElement('div');
 document.body.appendChild(scoreContainer);
 scoreContainer.id = 'scoreContainer';
@@ -82,16 +90,23 @@ const scoreParagraph = document.createElement('p');
 scoreContainer.appendChild(scoreParagraph);
 scoreParagraph.innerText = `Score: ${score}`;
 
-
+//actions to create div for countdown, append it to body,
+//create p and append it inside of div
+//NUMBERS GUESSED
 const numberGuessedContainer = document.createElement('div');
+document.body.appendChild(numberGuessedContainer);
+numberGuessedContainer.id = 'numberGuessedContainer';
+const numberGuessedParagraph = document.createElement('p');
+numberGuessedContainer.appendChild(numberGuessedParagraph);
+numberGuessedParagraph.innerText = `Numbers guessed: ${guessedNumber}`
+
+//******************CREATE ELEMENTS IN DOM SECTION END */
 
 
 
-
-
-
+//**********GENERATE RANDOM NUMBER AND APPEND THEM IN DOM//
 //for to create and append paragraphs containing 1 random number each, push random number inside of the empty array arrayRandomNumbers
-for (let i = 0; i < 5; i++){
+for (let i = 0; i < 5; i++) {
     const numberParagraph = document.createElement('p');
     container.appendChild(numberParagraph);
     let randomNumber = generateRandomNumber(1, 100);
@@ -100,7 +115,6 @@ for (let i = 0; i < 5; i++){
 }
 
 console.log(arrayRandomNumbers);
-
 
 
 

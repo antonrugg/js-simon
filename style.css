@@ -53,3 +53,16 @@ body{
     font-size: 30px;
     font-weight: 600;
 }
+
+#numberGuessedContainer{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#numberGuessedContainer p{
+    color: brown;
+    font-size: 30px;
+    font-weight: 600;
+}
