@@ -6,9 +6,10 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: gray;
 }
 
-#container{
+#containerNumbers{
     margin: 50px auto;
     display: flex;
     justify-content: center;
@@ -18,9 +19,24 @@ body{
     background-color: blue;
 }
 
-div p{
+#containerCountDown{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+#containerNumbers p{
     color: white;
     margin: 0rem 1.25rem;
     border: 2px solid white;
     padding: 1rem;
+}
+
+#containerCountDown p{
+    color: black;
+    font-size: 30px;
+    font-weight: 900;
 }
